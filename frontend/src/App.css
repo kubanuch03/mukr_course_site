@@ -1,0 +1,243 @@
+/* src/App.css */
+
+/* Общие стили */
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  margin: 0;
+  background-color: #f0f2f5; /* Нейтральный фон */
+  color: #333;
+  line-height: 1.6;
+}
+
+.App {
+  text-align: center; /* Общее выравнивание, можно переопределить для блоков */
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Шапка */
+.App-header {
+  background-color: #20232a; /* Темная шапка */
+  padding: 15px 20px;
+  color: white;
+  text-align: left; /* Выравнивание навигации */
+}
+
+.nav-link {
+  color: #61dafb; /* Яркий цвет для ссылок в шапке */
+  text-decoration: none;
+  margin-right: 20px;
+  font-size: 1.1em;
+}
+
+.nav-link:hover {
+  text-decoration: underline;
+}
+
+/* Основное содержимое */
+.App-main {
+  flex-grow: 1; /* Занимает все доступное пространство между шапкой и подвалом */
+  padding: 20px;
+}
+
+/* Подвал */
+.App-footer {
+  background-color: #20232a;
+  color: #aaa;
+  padding: 15px 20px;
+  text-align: center;
+  font-size: 0.9em;
+}
+
+/* Сообщения о статусе/ошибках */
+.status-message {
+  font-size: 1.2em;
+  padding: 20px;
+  text-align: center;
+}
+.error-message {
+  color: #d32f2f; /* Красный цвет для ошибок */
+}
+
+/* Контейнер для списка курсов */
+.course-list-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  text-align: left; /* Сброс text-align: center от .App */
+}
+
+.course-list-container h1 {
+  text-align: center;
+  margin-bottom: 30px;
+  color: #333;
+}
+
+/* Сетка для карточек курсов */
+.course-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); /* Адаптивная сетка */
+  gap: 25px; /* Промежуток между карточками */
+}
+
+/* Стили для карточки курса */
+.course-card {
+  background-color: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  transition: box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+.course-card:hover {
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  transform: translateY(-5px);
+}
+
+.course-card-link-wrapper {
+  text-decoration: none;
+  color: inherit; /* Наследует цвет от родителя */
+  margin-bottom: 15px; /* Отступ под ссылкой-оберткой */
+}
+
+.course-card-image-container {
+  width: 100%;
+  height: 180px; /* Фиксированная высота для изображения */
+  overflow: hidden;
+  border-radius: 6px;
+  margin-bottom: 15px;
+  background-color: #f5f5f5; /* Фон для плейсхолдера */
+}
+
+.course-card-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Масштабирует изображение, сохраняя пропорции */
+}
+
+.course-card-title {
+  font-size: 1.3em;
+  color: #007bff; /* Синий цвет для заголовков */
+  margin: 0 0 10px 0;
+  line-height: 1.3;
+}
+.course-card-link-wrapper:hover .course-card-title {
+  text-decoration: underline;
+}
+
+.course-card-instructor,
+.course-card-description {
+  font-size: 0.95em;
+  color: #555;
+  margin-bottom: 10px;
+  line-height: 1.5;
+}
+
+.course-card-description {
+  flex-grow: 1; /* Чтобы описание занимало место, если карточки разной высоты */
+}
+
+.details-button {
+  display: inline-block;
+  margin-top: auto; /* Прижимает кнопку к низу, если карточка вытягивается */
+  padding: 10px 18px;
+  background-color: #007bff;
+  color: white;
+  text-align: center;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: background-color 0.2s ease-in-out;
+  align-self: flex-start; /* Выравнивание кнопки по левому краю */
+}
+
+.details-button:hover {
+  background-color: #0056b3;
+}
+
+/* Стили для детальной страницы курса */
+.course-detail-container {
+  max-width: 900px;
+  margin: 20px auto;
+  padding: 30px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  text-align: left;
+}
+
+.course-detail-container.error-page {
+  text-align: center;
+}
+
+.back-link {
+  display: inline-block;
+  margin-bottom: 25px;
+  color: #007bff;
+  text-decoration: none;
+  font-size: 1em;
+  font-weight: 500;
+}
+.back-link:hover {
+  text-decoration: underline;
+}
+
+.course-detail-title {
+  font-size: 2.2em;
+  color: #333;
+  margin-bottom: 20px;
+  line-height: 1.2;
+}
+
+.course-detail-image-container {
+  width: 100%;
+  max-width: 700px;
+  margin: 0 auto 30px auto;
+  border-radius: 8px;
+  overflow: hidden;
+}
+.course-detail-image {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.course-detail-info {
+  font-size: 1.1em;
+}
+
+.course-detail-instructor,
+.course-detail-created {
+  color: #555;
+  margin-bottom: 15px;
+}
+.course-detail-instructor strong,
+.course-detail-created strong {
+  color: #333;
+}
+
+.course-detail-description {
+  margin-top: 20px;
+}
+.course-detail-description strong {
+  display: block;
+  margin-bottom: 8px;
+  color: #333;
+  font-size: 1.2em;
+}
+.course-detail-description p {
+  color: #444;
+  line-height: 1.7;
+  white-space: pre-wrap; /* Сохраняет переносы строк из описания */
+}
